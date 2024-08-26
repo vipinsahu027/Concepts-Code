@@ -1,23 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printArray(vector<int> &arr){
-    for(int i=0; i<arr.size(); i++){
+void printArray(vector<int> &arr, int n){
+    for(int i=0; i<n; i++){
         cout<<arr[i]<<" ";
     }
     cout<<endl;
 }
 
-void arrayUnique(vector<int> &arr){
+int arrayUnique(vector<int> &arr){
     int i=0;
     for(int j=1; j<arr.size(); j++){
         if(arr[i] != arr[j]){
             arr[++i] = arr[j];
         }
     }
-    for(int j=i+1; j<arr.size(); j++){
-        arr[j] = -1;
-    }
+    return i+1;
 }
 
 int main(){
@@ -37,12 +35,9 @@ int main(){
             arr.push_back(num);
         }
 
-        //Array Before
-        printArray(arr);
-        arrayUnique(arr);
-
-        //Array After
-        printArray(arr);
+        printArray(arr, arr.size());
+        int k = arrayUnique(arr);
+        printArray(arr,k);
     }
 
     return 0;
