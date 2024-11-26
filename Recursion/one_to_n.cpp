@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void PrintOrder(int n){
+    if(n==0){
+        return;
+    }
+    PrintOrder(n-1);
+    cout<<n<<" ";
+}
+
+int main(){
+    int s;
+    cin>>s;
+    while(s--){
+        int n;
+        cin>>n;
+
+        cout<<n<<" : ";
+        PrintOrder(n);
+        cout<<endl;
+    }
+    return 0;
+}
